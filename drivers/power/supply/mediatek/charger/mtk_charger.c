@@ -767,7 +767,8 @@ int charger_manager_enable_chg_type_det(struct charger_consumer *consumer,
 	struct charger_manager *info = consumer->cm;
 	struct charger_device *chg_dev = NULL;
 	union power_supply_propval val = {0,};
-	struct power_supply *charger_psy, *usb_psy;
+	struct power_supply *charger_psy = NULL;
+	struct power_supply *usb_psy = NULL;
 	struct mt_charger *mt_chg = power_supply_get_drvdata(pinfo->usb_psy);
 	int ret = 0;
 
