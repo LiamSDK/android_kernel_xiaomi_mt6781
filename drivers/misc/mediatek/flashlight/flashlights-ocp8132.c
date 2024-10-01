@@ -612,7 +612,16 @@ static int ocp8132_probe(struct platform_device *pdev)
 	}
 
 	// 增加节点/sys/devices/platform/att_ocp8132_FLASH
-	sysfs_create_file(&pdev->dev.kobj, &dev_attr_ocp8132_FLASH.attr);
+	int ret = 0;
+	ret = sysfs_create_file(&pdev->dev.kobj, &dev_attr_ocp8132_FLASH.attr);
+	      if (ret) {
+                  dev_err(&pdev->dev, "%s: sysfs_create_file failed: %d\n",
+
+                          __func__,ret); 
+                  return 0;
+		  }
+
+
 	mtk_flashlight_create_classdev(pdev);
 	mtk_torch_create_classdev(pdev);
 	PK_DBG("Probe done.\n");

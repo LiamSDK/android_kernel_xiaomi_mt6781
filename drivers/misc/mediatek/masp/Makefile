@@ -19,7 +19,7 @@ ifeq ($(CONFIG_MTK_SECURITY_SW_SUPPORT), y)
 
 MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
 MASP_CORE_DRIVER_DIR := $(srctree)/drivers/misc/mediatek/masp
-
+subdir-ccflags-y += -Wno-unused-value
 #Kernel 3.18 always use asfv2
 asf_link := asfv2
 

@@ -13,7 +13,7 @@ sspm-objs += sspm_timesync.o
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/sspm
 ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/$(CONFIG_MTK_PLATFORM)
-
+ccflags-y += -Wno-missing-braces
 ccflags-$(CONFIG_MTK_ENG_BUILD) += -DDEBUG
 #ccflags-y += -DDEBUG
 
